@@ -42,6 +42,12 @@ public class Start {
 		System.out.println();
 		hamming.hammingAbstandBestimmen(1, str);
 		
+		System.out.println();
+		Paritaet par = new Paritaet();
+		par.setEinDimParity(str);
+		System.out.println();
+		hamming.hammingAbstandBestimmen(1, str);
+		
 		
 	}
 	
