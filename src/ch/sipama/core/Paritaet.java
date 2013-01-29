@@ -8,8 +8,7 @@ public class Paritaet {
 	public void setEinDimParity(String codewort){
 		char[] code = codewort.toCharArray();
 		for(int i=0; i<CodewortList.getInstance().getCodewortList().size(); i++){
-			String str = CodewortList.getInstance().getCodewortList().get(i);
-			char[] s = str.toCharArray();
+			char s[] = CodewortList.getInstance().getCodewortList().get(i).toCharArray();
 			char[] s2 = new char[(s.length+1)];
 			
 			int paritaet=0;

@@ -21,7 +21,7 @@ public class Start {
 		
 		//Eine beliebige Länge für einen Code vorgeben und alle möglichen Codewörter generieren
 		CompleteCodeGenerator ccg = new CompleteCodeGenerator();
-		ccg.completeCodeGenerieren(5);
+		ccg.completeCodeGenerieren(4);
 		
 //		HammingAbstand hamming = new HammingAbstand();
 		hamming.hammingAbstandBestimmen(0, "");
