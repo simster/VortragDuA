@@ -3,31 +3,28 @@ package ch.sipama.core;
 import ch.sipama.data.CodewortList;
 
 public class WortInBinaer {
-	
+
 	public void stringToBinaer(String str){
-		char[] s = str.toCharArray();
-		char[] code = {'0', '0', '0', '0', '0', '0', '0'};	
+		//String in der CodewortList abspeichern
+		CodewortList.getInstance().setStr(str);
 		
+		//String in ein CharArray umwandeln
+		char[] s = str.toCharArray();	
+
+		//Für jedes Element des CharArrays den Buchstaben in Binärcode umwandeln und in die CodewortList speichern
 		for(int i = 0; i < str.length(); i++){
-			char[] c = code;
-			String by = Integer.toBinaryString((int) str.charAt(i));
-			char[] b = by.toCharArray();
-			
-			for(int j=0; j<b.length; j++){
-				c[((c.length-1)-(j))]=b[((b.length-1)-j)];
-			}
-			
+			char[] c = Integer.toBinaryString((int) str.charAt(i)).toCharArray();
 			CodewortList.getInstance().getCodewortList().add(new String(c));
 			System.out.println("Buchstabe " + s[i] + ": " + CodewortList.getInstance().getCodewortList().get(i));
 		}
-		}
-		
-		
 	}
-	
-	
-	
-	
-	
+
+
+}
+
+
+
+
+
 
 

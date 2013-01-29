@@ -7,6 +7,9 @@ public class CodewortList {
 	//Instanzvariablen
 	private static CodewortList instance = null;
 	private ArrayList<String> codewortList;
+	private ArrayList<String> parityCodewortList;
+	private ArrayList<String> hammingCodewortList;
+	private String str;
 
 	//Konstruktor
 	private CodewortList(){
@@ -29,6 +32,30 @@ public class CodewortList {
 
 	public void setCodewortList(ArrayList<String> arrayList) {
 		this.codewortList = arrayList;
+	}
+	
+	public ArrayList<String> getParityCodewortList() {
+		return parityCodewortList;
+	}
+
+	public void setParityCodewortList(ArrayList<String> parityCodewortList) {
+		this.parityCodewortList = parityCodewortList;
+	}
+
+	public ArrayList<String> getHammingCodewortList() {
+		return hammingCodewortList;
+	}
+
+	public void setHammingCodewortList(ArrayList<String> hammingCodewortList) {
+		this.hammingCodewortList = hammingCodewortList;
+	}
+
+	public String getStr() {
+		return str;
+	}
+
+	public void setStr(String str) {
+		this.str = str;
 	}
 
 }

@@ -24,8 +24,7 @@ public class CompleteCodeGenerator {
 		for(int i=0; i< anz; i++){
 			char[] c = code;
 			
-			String by = Integer.toBinaryString(i);
-			char[] b = by.toCharArray();
+			char[] b = Integer.toBinaryString(i).toCharArray();
 			
 			for(int j=0; j<b.length; j++){
 				c[((c.length-1)-j)]=b[((b.length-1)-j)];
