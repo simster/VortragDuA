@@ -12,6 +12,8 @@ public class Kommandozentrale {
 	private HammingAbstand hAbstand = new HammingAbstand();
 	private Paritaet par = new Paritaet();
 	private HammingCode hamc = new HammingCode();
+	private ParitaetPruefen pp = new ParitaetPruefen();
+	private HammingPruefen hp = new HammingPruefen();
 
 	public Kommandozentrale(){
 		leser = new Eingabeleser();
@@ -33,30 +35,25 @@ public class Kommandozentrale {
 			else{
 				int methode = Integer.parseInt(eingabe);
 				switch (methode) {
-					case 0: hammingAbstand();
-					break;
-					case 1: random();
-					break;
-					case 2: completeCode();
-					break;
-					case 3: eigenesWort();
-					break;
-					case 4: setParity();
-					break;
-					case 5: setHammingCode();
-					break;
-				
-				//	                    default: monthString = "Invalid month";
-				//	                             break;
+				case 0: hammingAbstand();
+				break;
+				case 1: random();
+				break;
+				case 2: completeCode();
+				break;
+				case 3: eigenesWort();
+				break;
+				case 4: setParity();
+				break;
+				case 5: setHammingCode();
+				break;
+				case 6: paritaetPruefen();
+				break;
+				default: System.out.println("Gib einen gültigen Wert ein!");
+				break;
 				}
-				//	                System.out.println(monthString);
-
-
 			}
-
-
 		}
-		//	        abschiedstextAusgeben();
 	}
 
 
@@ -108,55 +105,45 @@ public class Kommandozentrale {
 		System.out.println("Tippe das Wort ein, welches buchstabenweise in einen Binärcode umgewandelt werden soll:");
 		belWort=leser.gibEingabe();
 		wib.stringToBinaer(belWort);
+		wib.listeAusgeben();
 	}
 
-	
+
 	public void setParity(){
 		par.setEinDimParity();
+		par.paritaetlisteAusgeben();
 	}
-	
+
 
 	public void setHammingCode(){
 		hamc.setHammingCode();
+		hamc.hammingListeAusgeben();
+	}
+
+
+	public void paritaetPruefen(){
+		startzustand();
+		String belWort;
+		System.out.println("Tippe das Wort ein, welches buchstabenweise in einen Binärcode umgewandelt werden soll:");
+		belWort=leser.gibEingabe();
+		wib.stringToBinaer(belWort);
+		par.setEinDimParity();
+		pp.stringVorher();
+		String binWort = leser.gibEingabe();
+		pp.parAuswertung(binWort);
 	}
 	
-	//		
-	//		//Ein beliebiges Wort in Buchstaben aufteilen und diese in Binärcode umwandeln
-	//		String str = "zuerich";
-	//		System.out.println("Das Wort " + str + " binär dargestellt:");
-	//		
-	//		System.out.println();
-	//		
-	//		WortInBinaer wib = new WortInBinaer();
-	//		wib.stringToBinaer(str);
-	//		System.out.println();
-	//		hamming.hammingAbstandBestimmen(1, str);
-	//		
-	//		System.out.println();
-	//		Paritaet par = new Paritaet();
-	//		par.setEinDimParity(str);
-	//		System.out.println();
-	//		hamming.hammingAbstandBestimmen(1, str);
-	//		
-	//		System.out.println();
-	//		
-	//		
-	//		CodewortList.getInstance().setCodewortList(new ArrayList<String>());
-	//		wib.stringToBinaer(str);
-	//		
-	//		
-	//		hamc.setHammingCode(str);
-	//		hamming.hammingAbstandBestimmen(1, str);
-
-
-
-
-
-
-
-
-
-
-
+	
+	public void hammingPruefen(){
+		startzustand();
+		String belWort;
+		System.out.println("Tippe das Wort ein, welches buchstabenweise in einen Binärcode umgewandelt werden soll:");
+		belWort=leser.gibEingabe();
+		wib.stringToBinaer(belWort);
+		hamc.setHammingCode();
+		hp.stringVorher();
+		String hamWort = leser.gibEingabe();
+		hp.hamAuswertung(hamWort);
+	}
 
 }

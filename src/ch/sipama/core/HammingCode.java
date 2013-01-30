@@ -71,6 +71,11 @@ public class HammingCode {
 			}
 
 			CodewortList.getInstance().getHammingCodewortList().add(new String(hamming));
+		}
+	}
+
+	public void hammingListeAusgeben(){
+		for(int i = 0; i<CodewortList.getInstance().getCodewortList().size(); i++){
 			if(code!=null){
 				System.out.println("Buchstabe " + code[i] + ": " + CodewortList.getInstance().getHammingCodewortList().get(i));
 			}
@@ -78,9 +83,6 @@ public class HammingCode {
 				System.out.println("Wort " + (char)(i+65) + ": " + CodewortList.getInstance().getHammingCodewortList().get(i));
 			}	
 		}
-
-
 	}
-
 
 }
