@@ -35,18 +35,18 @@ public class ParitaetPruefen {
 			if(((int)v[7])-48==paritaet){
 				if(CodewortList.getInstance().getStr()!=null){
 					char code[] = CodewortList.getInstance().getStr().toCharArray();
-					System.out.println("Buchstabe " + code[i-1] + ": " + new String(c) + " ok");
+					System.out.println("Buchstabe " + code[i-1] + ": " + CodewortList.getInstance().getParityCodewortList().get((i-1)) + " <-> " + new String(c) + " ok");
 				}
 				else{
-					System.out.println("Wort " + (char)((i-1)+65) + ": " + new String(c) + " ok");
+					System.out.println("Wort " + (char)((i-1)+65) + ": " + CodewortList.getInstance().getParityCodewortList().get((i-1)) + " <-> " + new String(c) + " ok");
 				}	
 			}else{
 				if(CodewortList.getInstance().getStr()!=null){
 					char code[] = CodewortList.getInstance().getStr().toCharArray();
-					System.out.println("Buchstabe " + code[(i-1)] + ": " + new String(c) + " Das Wort enthält einen Fehler!");
+					System.out.println("Buchstabe " + code[(i-1)] + ": " + CodewortList.getInstance().getParityCodewortList().get((i-1)) + " <-> "+ new String(c) + " Das Wort enthält einen Fehler!");
 				}
 				else{
-					System.out.println("Wort " + (char)((i-1)+65) + ": " + new String(c) + " Das Wort enthält einen Fehler!");
+					System.out.println("Wort " + (char)((i-1)+65) + ": " + CodewortList.getInstance().getParityCodewortList().get((i-1)) + " <-> " + new String(c) + " Das Wort enthält einen Fehler!");
 				}	
 			}
 		}

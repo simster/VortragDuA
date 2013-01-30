@@ -16,16 +16,15 @@ public class HammingCode {
 
 		for(int i = 0; i<CodewortList.getInstance().getCodewortList().size(); i++){
 			char s[] = CodewortList.getInstance().getCodewortList().get(i).toCharArray();
-			char hamming[] = new char[15];
-			hamming[7]=' ';
+			char hamming[] = new char[14];
 			hamming[0]='0';
 			hamming[1]=s[0];
 			hamming[2]=s[1];
 			hamming[4]=s[2];
-			hamming[8]=s[3];
-			hamming[9]=s[4];
-			hamming[10]=s[5];
-			hamming[12]=s[6];
+			hamming[7]=s[3];
+			hamming[8]=s[4];
+			hamming[9]=s[5];
+			hamming[11]=s[6];
 
 
 			int pruef1 = ((int) hamming[0] + (int) hamming[1] + (int) hamming[2]) - 3*48;
@@ -49,25 +48,25 @@ public class HammingCode {
 				hamming[6]='1';
 			}
 
-			int pruef4 = ((int) hamming[8] + (int) hamming[9] + (int) hamming[10]) - 3*48;
+			int pruef4 = ((int) hamming[7] + (int) hamming[8] + (int) hamming[9]) - 3*48;
 			if(pruef4%2==0){
-				hamming[11]='0';
+				hamming[10]='0';
 			}else{
-				hamming[11]='1';
+				hamming[10]='1';
 			}
 
-			int pruef5 = ((int) hamming[8] + (int) hamming[9] + (int) hamming[12]) - 3*48;
+			int pruef5 = ((int) hamming[7] + (int) hamming[8] + (int) hamming[11]) - 3*48;
 			if(pruef5%2==0){
+				hamming[12]='0';
+			}else{
+				hamming[12]='1';
+			}
+
+			int pruef6 = ((int) hamming[7] + (int) hamming[9] + (int) hamming[11]) - 3*48;
+			if(pruef6%2==0){
 				hamming[13]='0';
 			}else{
 				hamming[13]='1';
-			}
-
-			int pruef6 = ((int) hamming[8] + (int) hamming[10] + (int) hamming[12]) - 3*48;
-			if(pruef6%2==0){
-				hamming[14]='0';
-			}else{
-				hamming[14]='1';
 			}
 
 			CodewortList.getInstance().getHammingCodewortList().add(new String(hamming));

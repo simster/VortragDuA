@@ -49,6 +49,8 @@ public class Kommandozentrale {
 				break;
 				case 6: paritaetPruefen();
 				break;
+				case 7: hammingPruefen();
+				break;
 				default: System.out.println("Gib einen gültigen Wert ein!");
 				break;
 				}
